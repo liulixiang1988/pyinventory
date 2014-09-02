@@ -14,7 +14,7 @@ from django.db import models
 
 
 class Inventory(models.Model):
-    id = models.sqlserver_ado.fields.BigAutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     inventory_code = models.CharField(max_length=255, blank=True)
     inventory_name = models.CharField(max_length=255, blank=True)
     remark = models.CharField(max_length=255, blank=True)
@@ -29,10 +29,12 @@ class Inventory(models.Model):
     class Meta:
         managed = False
         db_table = 'inventory'
+        verbose_name = '库存'
+        verbose_name_plural = '库存'
 
 
 class MaterialInventory(models.Model):
-    id = models.sqlserver_ado.fields.BigAutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     item_code = models.CharField(max_length=255, blank=True)
     inventory_code = models.CharField(max_length=255, blank=True)
     create_time = models.DateTimeField(blank=True, null=True)
@@ -46,10 +48,12 @@ class MaterialInventory(models.Model):
     class Meta:
         managed = False
         db_table = 'material__inventory'
+        verbose_name = '物料货位'
+        verbose_name_plural = '物料货位'
 
 
 class AnalysisResults(models.Model):
-    id = models.AutoField()
+    id = models.AutoField(primary_key=True)
     sample_code = models.CharField(max_length=50, blank=True)
     sample_sub_id = models.CharField(max_length=50, blank=True)
     sample_date = models.DateTimeField(blank=True, null=True)
@@ -77,4 +81,5 @@ class AnalysisResults(models.Model):
     class Meta:
         managed = False
         db_table = 'tb_analysis_results'
+        verbose_name = '分析结果'
 

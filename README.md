@@ -1,4 +1,4 @@
-python_study_case
+Inventory
 =================
 
-学习python
+Inventory
